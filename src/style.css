@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Base tokens
+--------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ink-50 text-ink-800 font-sans antialiased;
+    @apply dark:bg-ink-950 dark:text-ink-200;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-brand-500/30 text-brand-900 dark:text-brand-100;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-brand-400/50 dark:bg-brand-600/60;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-500/70;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reusable component utilities
+--------------------------------------------------------------------------- */
+@layer components {
+  .glass {
+    @apply border border-white/40 bg-white/60 backdrop-blur-xl;
+    @apply dark:border-white/10 dark:bg-white/[0.04];
+  }
+
+  .glass-strong {
+    @apply border border-white/50 bg-white/75 backdrop-blur-2xl;
+    @apply dark:border-white/10 dark:bg-ink-900/60;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-600 via-brand-500 to-accent-500 bg-clip-text text-transparent;
+    @apply dark:from-brand-300 dark:via-brand-400 dark:to-accent-400;
+  }
+
+  .text-gradient-animated {
+    @apply bg-gradient-to-r from-brand-500 via-accent-400 to-brand-500 bg-clip-text text-transparent;
+    background-size: 200% auto;
+    @apply animate-gradient-pan;
+  }
+
+  /* Gradient ring/border card */
+  .gradient-border {
+    position: relative;
+    background-clip: padding-box;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(34, 211, 238, 0.25), transparent);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .section-pad {
+    @apply px-5 py-24 sm:px-8 md:py-28 lg:px-12;
+  }
+
+  .container-x {
+    @apply mx-auto w-full max-w-7xl;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll-reveal directive states
+--------------------------------------------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+[data-reveal='left'] {
+  transform: translateX(-40px);
+}
+[data-reveal='right'] {
+  transform: translateX(40px);
+}
+[data-reveal='scale'] {
+  transform: scale(0.94);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Lenis smooth-scroll (inlined to avoid extra import) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Aurora / mesh gradient blobs */
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  pointer-events: none;
+}
