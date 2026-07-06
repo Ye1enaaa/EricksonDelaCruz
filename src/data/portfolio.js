@@ -20,7 +20,7 @@ export const profile = {
   ],
   stats: [
     { value: '2+', label: 'Years coding' },
-    { value: '4', label: 'Honors & awards' },
+    { value: '3', label: 'Honors & awards' },
     { value: '∞', label: 'Coffee cups' },
   ],
 }
