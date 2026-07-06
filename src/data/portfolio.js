@@ -11,7 +11,8 @@ export const profile = {
     'Results-driven Software Developer and Cum Laude graduate with experience building scalable production-grade applications across Android, microservices, and full-stack platforms.',
   location: 'Cagayan de Oro, Philippines',
   email: 'avilasonson@gmail.com',
-  cvUrl: '/Erickson_DelaCruz_CV_2026.pdf',
+  // BASE_URL keeps the link correct whether served at '/' or under a Pages sub-path.
+  cvUrl: import.meta.env.BASE_URL + 'Erickson_DelaCruz_CV_2026.pdf',
   socials: [
     { label: 'GitHub', icon: 'Github', url: 'https://github.com/Ye1enaaa' },
     { label: 'LinkedIn', icon: 'Linkedin', url: 'https://linkedin.com/in/' },
