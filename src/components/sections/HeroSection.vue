@@ -130,7 +130,7 @@ const codeLines = [
 
             <!-- floating chips -->
             <div class="absolute -left-6 top-16 animate-float rounded-2xl glass-strong px-4 py-2 text-sm font-semibold shadow-card">
-              <span class="text-gradient">☕ 5+ yrs</span>
+              <span class="text-gradient">☕ 2+ yrs</span>
             </div>
             <div
               class="absolute -right-5 bottom-10 animate-float rounded-2xl glass-strong px-4 py-2 text-sm font-semibold shadow-card"
