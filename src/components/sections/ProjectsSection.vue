@@ -1,10 +1,20 @@
 <script setup>
-import { Wallet, Smartphone, CreditCard, Radio, ArrowUpRight, Layers, Star } from 'lucide-vue-next'
+import {
+  Wallet,
+  Smartphone,
+  CreditCard,
+  Radio,
+  PackageSearch,
+  ArrowUpRight,
+  ExternalLink,
+  Layers,
+  Star,
+} from 'lucide-vue-next'
 import { projects, extraWork } from '@/data/portfolio'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import TechBadge from '@/components/ui/TechBadge.vue'
 
-const iconMap = { Wallet, Smartphone, CreditCard, Radio }
+const iconMap = { Wallet, Smartphone, CreditCard, Radio, PackageSearch }
 </script>
 
 <template>
@@ -76,13 +86,24 @@ const iconMap = { Wallet, Smartphone, CreditCard, Radio }
                 <div class="mt-5 flex flex-wrap gap-2">
                   <TechBadge v-for="t in p.tech" :key="t" :label="t" />
                 </div>
+
+                <a
+                  v-if="p.demoUrl"
+                  :href="p.demoUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  @click.stop
+                  class="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-accent-500 px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-transform hover:-translate-y-0.5"
+                >
+                  <ExternalLink class="h-4 w-4" /> Live Demo
+                </a>
               </div>
 
               <!-- featured decorative panel -->
               <div v-if="p.featured" class="relative hidden md:block md:w-64">
                 <div class="absolute -inset-2 rounded-3xl bg-gradient-to-br from-brand-500/30 to-accent-500/20 blur-2xl" />
                 <div class="relative grid aspect-square place-items-center rounded-3xl border border-white/20 bg-gradient-to-br from-brand-600/90 to-accent-500/90 text-white shadow-card">
-                  <Wallet class="h-24 w-24 opacity-90 animate-float" />
+                  <component :is="iconMap[p.icon]" class="h-24 w-24 opacity-90 animate-float" />
                 </div>
               </div>
             </div>

@@ -89,7 +89,6 @@ export const timeline = [
     current: false,
     points: [
       'Graduated Cum Laude',
-      'Latin Honor Awardee',
       'Best in Capstone',
       'TOPCIT Awardee — Top 15',
     ],
@@ -134,6 +133,24 @@ export const timeline = [
 
 export const projects = [
   {
+    id: 'stockpilot',
+    title: 'StockPilot — Inventory Management System',
+    blurb:
+      'A premium, full-featured inventory dashboard for modern retail and warehouse operations.',
+    // Feel free to swap these for your exact stack (e.g. Vue.js, Node, PostgreSQL…)
+    tech: ['SPA', 'Dashboard', 'Analytics', 'Multi-Warehouse', 'Dark Mode'],
+    points: [
+      'Real-time-style workflows for products, purchase & sales orders',
+      'Multi-warehouse stock tracking',
+      'Suppliers, customers and analytics modules',
+      'Clean, animated, dark-mode-ready interface',
+    ],
+    icon: 'PackageSearch',
+    accent: 'from-brand-500 to-accent-500',
+    featured: true,
+    demoUrl: 'https://stockpilot-y2cb.onrender.com/',
+  },
+  {
     id: 'wallet',
     title: 'Digital Wallet & Loyalty Platform',
     blurb: 'Secure transfers, rewards and event-driven microservices at scale.',
@@ -146,11 +163,11 @@ export const projects = [
     ],
     icon: 'Wallet',
     accent: 'from-brand-500 to-accent-500',
-    featured: true,
+    featured: false,
   },
   {
     id: 'asenso',
-    title: 'Asenso Mobile Banking App',
+    title: 'Rural Banking App',
     blurb: 'Reliable mobile banking with resilient backend services.',
     tech: ['Flutter', 'Python Flask'],
     points: [
@@ -193,6 +210,40 @@ export const projects = [
   },
 ]
 
+// ── Live Demo showcase ──────────────────────────────────────────────
+// Only projects with a public, clickable demo go here.
+export const liveDemo = {
+  id: 'stockpilot',
+  title: 'StockPilot',
+  subtitle: 'Inventory Management System',
+  url: 'https://stockpilot-y2cb.onrender.com/',
+  domain: 'stockpilot-y2cb.onrender.com',
+  description:
+    'A premium, full-featured inventory management dashboard for modern retail and warehouse operations. Built as a polished, production-quality single-page app with real-time-style workflows for products, purchase & sales orders, multi-warehouse stock, suppliers, customers, and analytics — all wrapped in a clean, animated, dark-mode-ready interface.',
+  icon: 'PackageSearch',
+  tech: ['SPA', 'Dashboard', 'Analytics', 'Multi-Warehouse', 'Dark Mode'],
+  features: [
+    { label: 'Products', icon: 'Package' },
+    { label: 'Purchase & Sales Orders', icon: 'ShoppingCart' },
+    { label: 'Multi-Warehouse Stock', icon: 'Warehouse' },
+    { label: 'Suppliers & Customers', icon: 'Users' },
+    { label: 'Analytics', icon: 'LineChart' },
+  ],
+}
+
+export const comingSoonDemos = [
+  {
+    title: 'More live demos on the way',
+    desc: 'Additional projects are being prepared for a public, hands-on preview.',
+    icon: 'Rocket',
+  },
+  {
+    title: 'Stay tuned',
+    desc: 'New builds are added here as soon as they go live. Check back soon!',
+    icon: 'Sparkles',
+  },
+]
+
 export const extraWork = {
   title: 'Academic & Freelance Systems',
   blurb:
@@ -232,6 +283,7 @@ export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Demo', href: '#demo' },
   { label: 'Awards', href: '#awards' },
   { label: 'Contact', href: '#contact' },
 ]
